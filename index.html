@@ -525,6 +525,20 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
   attribution:'&copy; OpenStreetMap contributors'
 }).addTo(map);
 
+// Marco permanente da unidade: independente da camada de entregas.
+const tgrSerraTalhada=L.marker([-7.982745,-38.286885],{
+  icon:L.divIcon({
+    className:'tgr-marco-unidade',
+    html:'<span aria-hidden="true" style="display:block;font-size:22px;line-height:26px;filter:drop-shadow(0 1px 2px #3338)">🏁</span>',
+    iconSize:[28,28],iconAnchor:[14,25],popupAnchor:[0,-23]
+  }),
+  interactive:true,
+  keyboard:true,
+  draggable:false,
+  zIndexOffset:900,
+  title:'TGR Bebidas — Serra Talhada'
+}).addTo(map).bindPopup('<strong>TGR Bebidas — Serra Talhada</strong><br>Unidade de distribuição');
+
 let layer=L.layerGroup().addTo(map);
 let pontos=[];
 let pedidosImportadosHistorico=[]; // inclui pedidos sem coordenadas, sem criar marcadores
