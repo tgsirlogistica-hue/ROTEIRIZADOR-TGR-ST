@@ -518,7 +518,7 @@ margin-bottom:8px
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script>
-const map=L.map('map').setView([-7.9830497186192355,-38.28682637795434],13);
+const map=L.map('map').setView([-7.982995,-38.287209],13);
 // Endereço oficial do OpenStreetMap para uso em página web publicada.
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
   maxZoom:19,
@@ -526,18 +526,18 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
 }).addTo(map);
 
 // Marco permanente da unidade: independente da camada de entregas.
-const tgrSerraTalhada=L.marker([-7.9830497186192355,-38.28682637795434],{
+const tgrSerraTalhada=L.marker([-7.982995,-38.287209],{
   icon:L.divIcon({
     className:'tgr-marco-unidade',
-    html:'<span aria-hidden="true" style="display:block;font-size:22px;line-height:26px;filter:drop-shadow(0 1px 2px #3338)">🏁</span>',
-    iconSize:[28,28],iconAnchor:[14,25],popupAnchor:[0,-23]
+    html:'<div style="width:46px;height:56px;position:relative;filter:drop-shadow(0 3px 4px #0005)"><svg xmlns="http://www.w3.org/2000/svg" width="46" height="56" viewBox="0 0 46 56" aria-hidden="true"><circle cx="22" cy="20" r="19" fill="#fff" stroke="#b80000" stroke-width="3"/><circle cx="22" cy="20" r="15" fill="#fff4f4"/><path d="M18 8V33" stroke="#333" stroke-width="2.5" stroke-linecap="round"/><path d="M19 9 Q25 6 35 10 L35 25 Q27 21 19 25Z" fill="#fff" stroke="#222" stroke-width="1.2"/><path d="M19 9L27 9L27 17L19 17Z M27 17L35 17L35 25L27 23Z M19 17L27 17L27 24L19 25Z" fill="#252525"/><path d="M16 37L22 48L28 37" fill="#b80000"/><circle cx="22" cy="20" r="19" fill="none" stroke="#fff" stroke-width="1"/></svg></div>',
+    iconSize:[46,56],iconAnchor:[22,48],popupAnchor:[0,-42]
   }),
   interactive:true,
   keyboard:true,
   draggable:false,
   zIndexOffset:900,
   title:'TGR Bebidas — Serra Talhada'
-}).addTo(map).bindPopup('<strong>TGR Bebidas — Serra Talhada</strong><br>Unidade de distribuição');
+}).addTo(map).bindPopup('<strong>TGR Bebidas — Serra Talhada</strong><br>🏁 Ponto de partida das rotas<br><small>-7.982995, -38.287209</small>');
 
 let layer=L.layerGroup().addTo(map);
 let pontos=[];
@@ -773,7 +773,7 @@ function aplicarModoVisualizacao(ativo){
 }
 
 // Planejamento TGR: sequência por distância viária, a partir da distribuidora.
-const ORIGEM_TGR={lat:-7.9830497186192355,lon:-38.28682637795434};
+const ORIGEM_TGR={lat:-7.982995,lon:-38.287209};
 function ordemPonto(g,p){const i=g.ordem?.indexOf(chave(p))??-1;return i<0?100000+p.seq:i;}
 // Atualização automática com intervalo para evitar requisições repetidas.
 let timerSequenciaTGR=null;
