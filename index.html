@@ -518,7 +518,7 @@ margin-bottom:8px
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script>
-const map=L.map('map').setView([-7.982745,-38.286885],13);
+const map=L.map('map').setView([-7.9830497186192355,-38.28682637795434],13);
 // Endereço oficial do OpenStreetMap para uso em página web publicada.
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
   maxZoom:19,
@@ -526,7 +526,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
 }).addTo(map);
 
 // Marco permanente da unidade: independente da camada de entregas.
-const tgrSerraTalhada=L.marker([-7.982745,-38.286885],{
+const tgrSerraTalhada=L.marker([-7.9830497186192355,-38.28682637795434],{
   icon:L.divIcon({
     className:'tgr-marco-unidade',
     html:'<span aria-hidden="true" style="display:block;font-size:22px;line-height:26px;filter:drop-shadow(0 1px 2px #3338)">🏁</span>',
@@ -773,7 +773,7 @@ function aplicarModoVisualizacao(ativo){
 }
 
 // Planejamento TGR: sequência por distância viária, a partir da distribuidora.
-const ORIGEM_TGR={lat:-7.982745,lon:-38.286885};
+const ORIGEM_TGR={lat:-7.9830497186192355,lon:-38.28682637795434};
 function ordemPonto(g,p){const i=g.ordem?.indexOf(chave(p))??-1;return i<0?100000+p.seq:i;}
 // Atualização automática com intervalo para evitar requisições repetidas.
 let timerSequenciaTGR=null;
